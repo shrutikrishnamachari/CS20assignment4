@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Joe's Hotdog Stand</title>
+
+<h1>Joe's Hotdogs Online Order Receipt</h1>
+
+<style>
+body {
+  column-count: 2;
+  Text-align:center;
+  Font-family: Arial;
+  Font-size: 20px;
+}
+
+h2 {
+
+  Font-size: 20px;
+}
+h3 {
+
+  Font-size: 20px;
+}
+h1 {
+  column-span: all;
+  Text-align:center;
+}
+</style>
+
+<script language="javascript">
+var numHotdogs, numFries, numDrink, subtotal, disctotal, discount, total, tax;
+var DISCOUNT_PERCENT=0.10, MASS_TAX = 0.0625;
+var costHotdogs = 3.75, costFries = 2, costDrink = 1.80;
+
+numHotdogs = prompt("How many hotdogs? ");
+numFries = prompt("How many orders of French Fries? ");
+numDrink = prompt("How many drinks? ");
+subtotal = numDrink*costDrink + numFries*costFries + numHotdogs*costHotdogs;
+
+
+disctotal = subtotal;
+if(subtotal >=20)
+	disctotal = subtotal * (1-DISCOUNT_PERCENT);
+ 
+total =  disctotal * (1+MASS_TAX);
+
+subtotal = Math.round(subtotal*100)/ 100; 
+discount = Math.round((subtotal-disctotal)*100)/100; 
+tax = Math.round((total-disctotal)*100)/100; 
+total = Math.round(total*100)/100; 
+
+document.writeln("<h2> Hotdog (" + numHotdogs + ") </h2>");
+document.writeln("<h2> Fries (" + numFries + ") </h2>");
+document.writeln("<h2> Drinks (" + numDrink + ") </h2>");
+
+document.writeln("<h2>Subtotal</h2>");
+document.writeln("<h2>Discount</h2>");
+document.writeln("<h2>Tax</h2>");
+document.writeln("<h2>Total</h2>");
+
+
+document.writeln("<h3> $"+(numHotdogs*costHotdogs)+"</h3>");
+document.writeln("<h3> $"+(numFries*costFries)+"</h3>");
+document.writeln("<h3> $"+(numDrink*costDrink)+"</h3>");
+
+document.writeln("<h3> $"+subtotal+"</h3>");
+document.writeln("<h3> $"+discount+"</h3>");
+document.writeln("<h3> $"+tax+"</h3>");
+document.writeln("<h3> $"+total+"</h3>");
+document.writeln("<h3></h3>");
+
+</script>
+
+</head>
+
+<body>
+
+</body>
+</html>
